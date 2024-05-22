@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        deregister: true
+        service-name: ${spring.application.name}
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+#          filters:
+#            - SimpleAuthGlobalFilter
+        - id: feign-service
+          uri: lb://feign-service
+          predicates:
+            - Path=/api/feign/**
