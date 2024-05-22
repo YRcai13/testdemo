@@ -20,6 +20,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.cyr.common</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- springCloud 提供基于consul的服务发现 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
