@@ -1,0 +1,35 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /api/auth
+spring:
+  application:
+    name: auth-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        deregister: true
+        service-name: ${spring.application.name}
+        health-check-path: ${server.servlet.context-path}/actuator/health
+#        这个服务需要主动开启心跳机制——why?
+        heartbeat:
+          enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/pingan?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*.xml

@@ -11,7 +11,7 @@
 
     <modules>
         <module>gateway</module>
-        <module>user-service</module>
+        <module>auth-service</module>
         <module>feign-service</module>
         <module>common</module>
     </modules>

@@ -12,10 +12,10 @@ spring:
         service-name: ${spring.application.name}
     gateway:
       routes:
-        - id: user-service
-          uri: lb://user-service
+        - id: auth-service
+          uri: lb://auth-service
           predicates:
-            - Path=/api/user/**
+            - Path=/api/auth/**
 #          filters:
 #            - SimpleAuthGlobalFilter
         - id: feign-service
