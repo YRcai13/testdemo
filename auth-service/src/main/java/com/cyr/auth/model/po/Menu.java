@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 权限实体类
  * @date 2024/5/21 21:05
  */
 @TableName("sys_menu")

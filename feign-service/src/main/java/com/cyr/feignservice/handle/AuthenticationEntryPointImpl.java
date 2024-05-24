@@ -1,4 +1,4 @@
-package com.cyr.auth.handle;
+package com.cyr.feignservice.handle;
 
 import com.alibaba.fastjson.JSON;
 import com.cyr.common.BaseResponse;
@@ -24,7 +24,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
 			throws IOException, ServletException {
 		// 处理异常
-		BaseResponse result = new BaseResponse(HttpStatus.SC_UNAUTHORIZED, "用户认证失败，请查询登录!");
+		BaseResponse result = new BaseResponse(HttpStatus.SC_UNAUTHORIZED, "用户认证失败，请查询登录");
 		String jsonResult = JSON.toJSONString(result);
 		response.setStatus(200);
 		response.setCharacterEncoding("utf-8");

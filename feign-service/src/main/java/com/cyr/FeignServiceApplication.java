@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description feign启动类
  * @date 2024/5/16 19:51
  */
 

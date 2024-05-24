@@ -22,11 +22,11 @@ import java.util.Set;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 网关全局异常处理（已弃用）
  * @date 2024/5/17 21:35
  */
 @Slf4j
-@Component
+//@Component
 @Deprecated
 public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 
@@ -72,11 +72,11 @@ public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 			return exchange.getResponse().setComplete();
 		}
 		// 判断是否有效的token
-		Long expire = redisTemplate.getExpire(token);
-		if (expire != null && expire == -2) {
-			log.info("token已失效");
-			return exchange.getResponse().setComplete();
-		}
+//		Long expire = redisTemplate.getExpire(token);
+//		if (expire != null && expire == -2) {
+//			log.info("token已失效");
+//			return exchange.getResponse().setComplete();
+//		}
 
 		return chain.filter(exchange);
 	}

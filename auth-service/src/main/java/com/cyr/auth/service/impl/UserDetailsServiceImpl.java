@@ -3,8 +3,8 @@ package com.cyr.auth.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cyr.auth.mapper.MenuMapper;
 import com.cyr.auth.mapper.UserMapper;
-import com.cyr.auth.model.po.LoginUser;
-import com.cyr.auth.model.po.User;
+import com.cyr.model.po.User;
+import com.cyr.model.po.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ import java.util.Objects;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 将spring security默认的内存访问改为数据库访问
  * @date 2024/5/19 20:41
  */
 @Service

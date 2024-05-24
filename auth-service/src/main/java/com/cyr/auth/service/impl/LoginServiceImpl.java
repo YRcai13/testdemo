@@ -3,10 +3,10 @@ package com.cyr.auth.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cyr.common.BaseResponse;
 import com.cyr.auth.mapper.UserMapper;
-import com.cyr.auth.model.po.LoginUser;
-import com.cyr.auth.model.po.User;
 import com.cyr.auth.service.LoginService;
 import com.cyr.auth.utils.JwtUtil;
+import com.cyr.model.po.LoginUser;
+import com.cyr.model.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 登录服务类
  * @date 2024/5/17 14:46
  */
 @Service

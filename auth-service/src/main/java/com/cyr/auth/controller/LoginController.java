@@ -3,8 +3,8 @@ package com.cyr.auth.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cyr.common.BaseResponse;
 import com.cyr.auth.mapper.UserMapper;
-import com.cyr.auth.model.po.User;
 import com.cyr.auth.service.LoginService;
+import com.cyr.model.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 登录接口
  * @date 2024/5/17 14:12
  */
 @Slf4j

@@ -1,9 +1,9 @@
-package com.cyr.auth.utils;
+package com.cyr.feignservice.utils;
 
 /**
  * @author caiyu
  * @version 1.0
- * @description JWT工具类
+ * @description jwt工具类
  * @date 2024/5/20 11:23
  */
 

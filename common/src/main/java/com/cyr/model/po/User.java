@@ -1,4 +1,4 @@
-package com.cyr.auth.model.po;
+package com.cyr.model.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 用户实体类
  * @date 2024/5/17 14:14
  */
 @TableName("sys_user")

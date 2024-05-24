@@ -1,6 +1,6 @@
-package com.cyr.auth.config;
+package com.cyr.feignservice.config;
 
-import com.cyr.auth.utils.JwtUtil;
+import com.cyr.feignservice.utils.JwtUtil;
 import com.cyr.model.po.LoginUser;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
@@ -21,7 +21,7 @@ import java.util.Objects;
 /**
  * @author caiyu
  * @version 1.0
- * @description auth模块的jwt过滤器
+ * @description feign模块的jwt过滤器
  * @date 2024/5/20 14:01
  */
 @Component

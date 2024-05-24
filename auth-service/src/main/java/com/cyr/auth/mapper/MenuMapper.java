@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 权限mapper
  * @date 2024/5/21 21:14
  */
 @Mapper

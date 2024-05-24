@@ -1,4 +1,4 @@
-package com.cyr.auth.config;
+package com.cyr.feignservice.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,14 +11,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * @author caiyu
  * @version 1.0
- * @description auth模块的安全配置类
+ * @description feign模块的安全配置类
  * @date 2024/5/19 16:07
  */
 @Configuration
@@ -41,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("================auth");
+		System.out.println("================feign");
 		http
 				.csrf().disable()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

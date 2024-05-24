@@ -1,4 +1,4 @@
-package com.cyr.auth.model.po;
+package com.cyr.model.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 登录用户实体类
  * @date 2024/5/19 21:04
  */
 @Data

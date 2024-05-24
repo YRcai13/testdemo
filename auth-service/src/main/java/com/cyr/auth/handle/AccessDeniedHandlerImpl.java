@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * @author caiyu
  * @version 1.0
- * @description TODO
+ * @description 权限异常处理器
  * @date 2024/5/22 12:14
  */
 @Component
