@@ -2,7 +2,7 @@ package com.cyr.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cyr.common.BaseResponse;
-import com.cyr.model.po.User;
+import com.cyr.auth.model.po.User;
 
 /**
  * @author caiyu

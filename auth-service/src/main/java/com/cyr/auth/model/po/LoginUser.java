@@ -1,4 +1,4 @@
-package com.cyr.model.po;
+package com.cyr.auth.model.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;

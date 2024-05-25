@@ -1,7 +1,7 @@
 package com.cyr.auth.config;
 
 import com.cyr.auth.utils.JwtUtil;
-import com.cyr.model.po.LoginUser;
+import com.cyr.auth.model.po.LoginUser;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
