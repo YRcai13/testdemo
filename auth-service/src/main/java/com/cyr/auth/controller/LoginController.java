@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cyr.common.BaseResponse;
 import com.cyr.auth.mapper.UserMapper;
 import com.cyr.auth.service.LoginService;
-import com.cyr.model.po.User;
+import com.cyr.auth.model.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

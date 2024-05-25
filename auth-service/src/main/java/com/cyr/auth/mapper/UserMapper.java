@@ -1,7 +1,7 @@
 package com.cyr.auth.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cyr.model.po.User;
+import com.cyr.auth.model.po.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
