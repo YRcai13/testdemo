@@ -10,6 +10,9 @@ spring:
       discovery:
         deregister: true
         service-name: ${spring.application.name}
+        # 这个服务需要主动开启心跳机制——why?
+        heartbeat:
+          enabled: true
     gateway:
       routes:
         - id: auth-service
@@ -22,3 +25,7 @@ spring:
           uri: lb://feign-service
           predicates:
             - Path=/api/feign/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**

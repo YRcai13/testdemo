@@ -1,11 +1,14 @@
 package com.cyr.gateway.filter;
 
+import com.cyr.utils.JwtUtil;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
@@ -26,8 +29,8 @@ import java.util.Set;
  * @date 2024/5/17 21:35
  */
 @Slf4j
-//@Component
-@Deprecated
+@Component
+//@Deprecated
 public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 
 	@Resource
@@ -71,6 +74,28 @@ public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 			log.info("没有认证");
 			return exchange.getResponse().setComplete();
 		}
+		String userId;
+		try {
+			Claims claims = JwtUtil.parseJWT(token);
+			userId = claims.getSubject();
+			if (userId == null) {
+				log.info("token失效");
+				exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+				return exchange.getResponse().setComplete();
+			}
+			List<String> list = redisTemplate.opsForList().range("login:" + userId, 0, -1);
+			System.out.println(list);
+			for (String url : list) {
+				if (pathMatcher.match(url, requestUrl)) {
+					return chain.filter(exchange);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		log.info("用户权限不足!");
+		exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+		return exchange.getResponse().setComplete();
 		// 判断是否有效的token
 //		Long expire = redisTemplate.getExpire(token);
 //		if (expire != null && expire == -2) {
@@ -78,7 +103,7 @@ public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 //			return exchange.getResponse().setComplete();
 //		}
 
-		return chain.filter(exchange);
+//		return chain.filter(exchange);
 	}
 
 	@Override
