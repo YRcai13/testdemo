@@ -83,7 +83,7 @@ public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 				exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
 				return exchange.getResponse().setComplete();
 			}
-			List<String> list = redisTemplate.opsForList().range("login:" + userId, 0, -1);
+			List<String> list = redisTemplate.opsForList().range("perms:" + userId, 0, -1);
 			System.out.println(list);
 			for (String url : list) {
 				if (pathMatcher.match(url, requestUrl)) {

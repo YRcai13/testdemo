@@ -40,7 +40,7 @@ public class LoginController {
 	}
 
 	@GetMapping("/get/{id}")
-	@PreAuthorize("hasAuthority('system:user:list')")
+//	@PreAuthorize("hasAuthority('system:user:list')")
 	public User getUserById(@PathVariable("id") int id) {
 		log.info("成功进去get");
 		LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
@@ -50,7 +50,7 @@ public class LoginController {
 	}
 	
 	@GetMapping("/get1/{id}")
-	@PreAuthorize("hasAuthority('system:test:list')")
+//	@PreAuthorize("hasAuthority('system:test:list')")
 	public User getUserById1(@PathVariable("id") int id) {
 		log.info("成功进去get");
 		LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();

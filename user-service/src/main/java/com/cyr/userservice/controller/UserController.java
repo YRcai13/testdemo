@@ -25,6 +25,11 @@ public class UserController {
 		return "hello world!!!";
 	}
 	
+	@GetMapping("/hello1")
+	public String hello1() {
+		return "hello world!!!";
+	}
+	
 //	@GetMapping("/get/{id}")
 //	public User getUserById(@PathVariable("id") int id) {
 //		log.info("成功进去get");

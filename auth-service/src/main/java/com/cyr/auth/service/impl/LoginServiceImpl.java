@@ -57,11 +57,10 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements L
 		Map<String, String> map = new HashMap<>();
 		map.put("token", jwt);
 //		将信息存入redis，userid作为key
-//		redisTemplate.opsForValue().set("login:" + userId, loginUser, 360, TimeUnit.SECONDS);
+		redisTemplate.opsForValue().set("login:" + userId, loginUser, 5, TimeUnit.MINUTES);
 		
-//		redisTemplate.opsForList().set("login:"+ userId, 0, loginUser.getPermissions());
-		redisTemplate.opsForList().leftPushAll("login:" + userId, loginUser.getPermissions());
-		redisTemplate.expire("login:" + userId, 5, TimeUnit.MINUTES);
+		redisTemplate.opsForList().leftPushAll("perms:" + userId, loginUser.getPermissions());
+		redisTemplate.expire("perms:" + userId, 5, TimeUnit.MINUTES);
 		
 		return new BaseResponse(200, map, "登录成功");
 	}
