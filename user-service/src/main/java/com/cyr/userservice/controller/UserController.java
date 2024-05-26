@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author caiyu
@@ -24,31 +25,16 @@ public class UserController {
 	@Autowired
 	private UserMapper userMapper;
 	
-	@Resource
-	private RedisTemplate<String, String> redisTemplate;
-	
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello user!!!";
-	}
-	
-	@GetMapping("/hello1")
-	public String hello1() {
-		return "hello user1!!!";
+	@GetMapping("/list")
+	public List<User> list() {
+		log.info("成功进去list");
+		List<User> userList = userMapper.selectList(null);
+		return userList;
 	}
 	
 	@GetMapping("/get/{id}")
 	public User getUserById(@PathVariable("id") int id) {
 		log.info("成功进去get");
-		LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
-		queryWrapper.eq(User::getUserId, id);
-		User user = userMapper.selectOne(queryWrapper);
-		return user;
-	}
-	
-	@GetMapping("/get1/{id}")
-	public User getUserById1(@PathVariable("id") int id) {
-		log.info("成功进去get1");
 		LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
 		queryWrapper.eq(User::getUserId, id);
 		User user = userMapper.selectOne(queryWrapper);

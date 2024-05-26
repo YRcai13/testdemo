@@ -5,10 +5,11 @@ import com.cyr.feignservice.feignclient.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author caiyu
@@ -24,19 +25,14 @@ public class FeignController {
 	@Autowired
 	private UserClient userClient;
 	
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello world!!!";
+	@GetMapping("/feignList")
+	public List<User> feignList() {
+		return userClient.feignList();
 	}
 	
-	@GetMapping("/feignHello1")
-	public String feignHello1() {
-		return userClient.userHello1();
-	}
-	
-	@GetMapping("/feignGet1")
-	public User feignGet1() {
-		return userClient.feignGetUserById(2);
+	@GetMapping("/feignGet/{id}")
+	public User feignGet(@PathVariable("id") int id) {
+		return userClient.feignGetUserById(id);
 	}
 
 }

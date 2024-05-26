@@ -73,8 +73,8 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements L
 		// 删除redis中userid对应的值
 		LoginUser loginUser = (LoginUser) authentication.getPrincipal();
 		String userid = String.valueOf(loginUser.getUser().getUserId());
-		String redisKey = "login:" + userid;
-		redisTemplate.delete(redisKey);
+		redisTemplate.delete("login:" + userid);
+		redisTemplate.delete("perms:" + userid);
 		return new BaseResponse(200, "注销成功");
 	}
 }

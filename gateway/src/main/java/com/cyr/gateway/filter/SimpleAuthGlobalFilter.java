@@ -91,6 +91,9 @@ public class SimpleAuthGlobalFilter implements GlobalFilter, Ordered {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.info("token非法");
+			exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+			return exchange.getResponse().setComplete();
 		}
 		log.info("用户权限不足!");
 		exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

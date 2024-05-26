@@ -7,11 +7,7 @@ import com.cyr.auth.service.LoginService;
 import com.cyr.auth.model.po.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
 
 /**
  * @author caiyu
@@ -24,8 +20,6 @@ import javax.annotation.Resource;
 @RequestMapping("/")
 public class LoginController {
 
-	@Resource
-	private RedisTemplate<String, String> redisTemplate;
 
 	@Autowired
 	private LoginService loginService;
