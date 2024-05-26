@@ -1,7 +1,9 @@
 package com.cyr.feignservice.controller;
 
+import com.cyr.feignservice.feignclient.UserClient;
+import com.cyr.feignservice.feignclient.po.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +21,22 @@ import javax.annotation.Resource;
 @RequestMapping("/")
 public class FeignController {
 	
+	@Autowired
+	private UserClient userClient;
+	
 	@GetMapping("/hello")
 	public String hello() {
 		return "hello world!!!";
+	}
+	
+	@GetMapping("/feignHello1")
+	public String feignHello1() {
+		return userClient.userHello1();
+	}
+	
+	@GetMapping("/feignGet1")
+	public User feignGet1() {
+		return userClient.feignGetUserById(2);
 	}
 
 }

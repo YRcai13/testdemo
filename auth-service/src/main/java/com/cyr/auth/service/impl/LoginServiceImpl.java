@@ -59,6 +59,7 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements L
 //		将信息存入redis，userid作为key
 		redisTemplate.opsForValue().set("login:" + userId, loginUser, 5, TimeUnit.MINUTES);
 		
+		redisTemplate.delete("perms:" + userId);
 		redisTemplate.opsForList().leftPushAll("perms:" + userId, loginUser.getPermissions());
 		redisTemplate.expire("perms:" + userId, 5, TimeUnit.MINUTES);
 		
